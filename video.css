@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background: 
+        linear-gradient(135deg, rgba(0, 15, 30, 0.8), rgba(0, 40, 60, 0.9)),
+        url('img/fondoG.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Efecto luces animadas encima del fondo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 150%;
+    height: 150%;
+    background: 
+        radial-gradient(circle, rgba(0, 200, 255, 0.2) 10%, transparent 70%),
+        radial-gradient(circle, rgba(0, 100, 255, 0.15) 10%, transparent 70%),
+        radial-gradient(circle, rgba(0, 255, 200, 0.15) 10%, transparent 70%);
+    background-position: 20% 30%, 70% 40%, 40% 80%;
+    background-size: 400px 400px;
+    animation: floatLights 20s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes floatLights {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Para que todo lo demás esté encima del fondo animado */
+.video-container, header, main {
+    position: relative;
+    z-index: 1;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+    padding-bottom: 40px;
+}
+
+iframe {
+    margin: 0;
+    border: 10px solid transparent;
+    border-radius: 20px;
+    padding: 8px;
+    background: linear-gradient(135deg, #00f2fe, #4facfe);
+    box-shadow: 
+        0 0 20px rgba(0, 242, 254, 0.6), 
+        0 0 40px rgba(79, 172, 254, 0.4),
+        0 0 60px rgba(0, 242, 254, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+iframe:hover {
+    transform: scale(1.03);
+    box-shadow: 
+        0 0 25px rgba(0, 242, 254, 0.7), 
+        0 0 50px rgba(79, 172, 254, 0.5),
+        0 0 80px rgba(0, 242, 254, 0.3);
+}

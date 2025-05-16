@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.logo {
+    width: 50px;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;        
+}
+
+.nav-links li{
+    display: inline-block;
+}
+
+.nav-links li a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background: #00ffff;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 8px #00ffff;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #00ffff;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
